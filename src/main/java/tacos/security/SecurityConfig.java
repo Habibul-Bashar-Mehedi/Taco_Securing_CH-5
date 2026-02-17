@@ -35,15 +35,12 @@ public class SecurityConfig {
         return http
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/design", "/orders").hasRole("USER")
-                        .requestMatchers("/", "/register", "/images/**").permitAll()
+                        .requestMatchers("/", "/register", "/login", "/images/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
                         .defaultSuccessUrl("/design", true)
                 )
-                .build(); // direct build
+                .build();
     }
-
-
-
 }

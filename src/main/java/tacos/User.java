@@ -1,9 +1,7 @@
 package tacos;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,6 +14,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 @Entity
+@Table(name = "users")
 @Data
 @NoArgsConstructor(access = AccessLevel.PROTECTED,force = true)
 @RequiredArgsConstructor
@@ -32,7 +31,7 @@ public class User implements UserDetails {
     private final String city;
     private final String state;
     private final String zip;
-    private final String phoneNumber;
+    private final String phone;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
